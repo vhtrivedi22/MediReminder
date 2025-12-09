@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MediReminder Project</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    header {
+      background-color: #4CAF50;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+    main {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background-color: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 10px;
+    }
+    h2 {
+      color: #4CAF50;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    label {
+      font-weight: bold;
+    }
+    input, select, textarea {
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+      width: 100%;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    .workflow, .description {
+      margin-bottom: 2rem;
+    }
+    ul {
+      padding-left: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>MediReminder</h1>
+  <p>Your automated medication reminder system</p>
+</header>
+
+<main>
+  <section class="description">
+    <h2>Project Description</h2>
+    <p>
+      MediReminder is a simple web-based tool that helps users remember to take their medications on time. 
+      By integrating Google Forms, Google Sheets, Google Calendar, and Gmail, it automatically schedules reminders and sends confirmation emails to users.
+      This project showcases automation, problem-solving, and user-focused design — skills relevant to the medical field.
+    </p>
+  </section>
+
+  <section class="form">
+    <h2>Sample Form Input</h2>
+    <form>
+      <label for="medication">Medication Name:</label>
+      <input type="text" id="medication" placeholder="Ex: Ibuprofen">
+
+      <label for="dose">Dose:</label>
+      <input type="text" id="dose" placeholder="Ex: 200mg">
+
+      <label for="time">Time:</label>
+      <input type="time" id="time">
+
+      <label for="startDate">Start Date:</label>
+      <input type="date" id="startDate">
+
+      <label for="endDate">End Date:</label>
+      <input type="date" id="endDate">
+
+      <label for="frequency">Frequency:</label>
+      <select id="frequency">
+        <option value="daily">Daily</option>
+        <option value="weekly">Weekly</option>
+      </select>
+
+      <label for="email">Your Email:</label>
+      <input type="email" id="email" placeholder="example@email.com">
+
+      <label for="notes">Notes (optional):</label>
+      <textarea id="notes" placeholder="Any additional instructions"></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+    <p><em>Note: This form is a mockup; submissions are handled by Google Forms in the real project.</em></p>
+  </section>
+
+  <section class="workflow">
+    <h2>How It Works</h2>
+    <ul>
+      <li>User submits medication details via Google Form.</li>
+      <li>Responses are saved in Google Sheets.</li>
+      <li>Google Apps Script reads the data and creates calendar events for each reminder.</li>
+      <li>Each reminder includes an invitation to the user’s Google Calendar.</li>
+      <li>One confirmation email is sent listing all reminder dates and times.</li>
+    </ul>
+  </section>
+</main>
+
+</body>
+</html>
