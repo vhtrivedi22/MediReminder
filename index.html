@@ -164,23 +164,7 @@
 <footer>
   &copy; 2025 MediReminder Project by Vishwa Trivedi
 </footer>
-
-<!-- Existing mock confirmation script -->
-<script>
-  const form = document.querySelector('form');
-  form.addEventListener('submit', function(e) {
-    e.preventDefault(); // prevent actual submission
-    const medication = document.getElementById('medication').value;
-    const dose = document.getElementById('dose').value;
-    const time = document.getElementById('time').value;
-    const start = document.getElementById('startDate').value;
-    const end = document.getElementById('endDate').value;
-    
-    alert(`Confirmation Email Sent!\n\nMedication: ${medication} (${dose})\nFrom: ${start} To: ${end}\nTime: ${time}`);
-  });
-</script>
-
-<!-- NEW: Apps Script Web App submission script -->
+  
 <script>
   const webForm = document.querySelector('form');
   webForm.addEventListener('submit', async function(e) {
