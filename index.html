@@ -3,31 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MediReminder Project</title>
+  <title>MediReminder</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f9f9f9;
+      font-family: 'Roboto', sans-serif;
       margin: 0;
       padding: 0;
+      background-color: #f4f7f8;
       color: #333;
     }
     header {
-      background-color: #4CAF50;
+      background-color: #1E90FF;
       color: white;
-      padding: 2rem;
+      padding: 2rem 1rem;
       text-align: center;
     }
+    header h1 {
+      margin: 0;
+      font-size: 2.2rem;
+    }
+    header p {
+      margin: 0.5rem 0 0;
+      font-size: 1rem;
+    }
     main {
-      max-width: 800px;
+      max-width: 900px;
+      width: 90%;
       margin: 2rem auto;
-      padding: 2rem;
+      padding: 1.5rem;
       background-color: white;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
       border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
     h2 {
-      color: #4CAF50;
+      color: #1E90FF;
+      margin-top: 2rem;
+    }
+    p, li {
+      font-size: 1rem;
+      line-height: 1.5;
     }
     form {
       display: flex;
@@ -44,18 +59,20 @@
       border-radius: 5px;
       font-size: 1rem;
       width: 100%;
+      box-sizing: border-box;
     }
     button {
-      background-color: #4CAF50;
+      background-color: #1E90FF;
       color: white;
       padding: 0.75rem;
       border: none;
       border-radius: 5px;
       font-size: 1rem;
       cursor: pointer;
+      transition: background 0.3s;
     }
     button:hover {
-      background-color: #45a049;
+      background-color: #0d6efd;
     }
     .workflow, .description {
       margin-bottom: 2rem;
@@ -63,22 +80,37 @@
     ul {
       padding-left: 1.5rem;
     }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.8rem; }
+      header p { font-size: 0.9rem; }
+      main { padding: 1rem; }
+      button { font-size: 1rem; padding: 0.7rem; }
+    }
   </style>
 </head>
 <body>
 
 <header>
   <h1>MediReminder</h1>
-  <p>Your automated medication reminder system</p>
+  <p>Automated Medication Reminder System</p>
 </header>
 
 <main>
   <section class="description">
     <h2>Project Description</h2>
     <p>
-      MediReminder is a simple web-based tool that helps users remember to take their medications on time. There are many times people forget to take their medications, harming their health.
-      By integrating Google Forms, Google Sheets, Google Calendar, and Gmail, MediReminder automatically schedules reminders and sends confirmation emails to users.
-      
+      MediReminder is a web-based tool that helps users remember their medications efficiently and easily.
+      Through the chaos of daily routines, busy jobs, and working schedules, remembering medication can sometimes be difficult.
+      Using Google Forms, Sheets, Calendar, and Gmail, MediReminder automatically schedules reminders
+      and sends confirmation emails to ensure that you are consistent and healthy. 
     </p>
   </section>
 
@@ -114,7 +146,7 @@
 
       <button type="submit">Submit</button>
     </form>
-    <p><em>Note: This form is a mockup; submissions are handled by Google Forms in the real project.</em></p>
+    <p><em>Note: This is a mock form. Submissions are handled by Google Forms in the real project.</em></p>
   </section>
 
   <section class="workflow">
@@ -128,6 +160,25 @@
     </ul>
   </section>
 </main>
-  
+
+<footer>
+  &copy; 2025 MediReminder Project by Vishwa Trivedi
+</footer>
+
+<script>
+  // Mock confirmation popup for form submission
+  const form = document.querySelector('form');
+  form.addEventListener('submit', function(e) {
+    e.preventDefault(); // prevent actual submission
+    const medication = document.getElementById('medication').value;
+    const dose = document.getElementById('dose').value;
+    const time = document.getElementById('time').value;
+    const start = document.getElementById('startDate').value;
+    const end = document.getElementById('endDate').value;
+    
+    alert(`Confirmation Email Sent!\n\nMedication: ${medication} (${dose})\nFrom: ${start} To: ${end}\nTime: ${time}`);
+  });
+</script>
+
 </body>
 </html>
