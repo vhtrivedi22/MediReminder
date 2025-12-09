@@ -165,8 +165,8 @@
   &copy; 2025 MediReminder Project by Vishwa Trivedi
 </footer>
 
+<!-- Existing mock confirmation script -->
 <script>
-  // Mock confirmation popup for form submission
   const form = document.querySelector('form');
   form.addEventListener('submit', function(e) {
     e.preventDefault(); // prevent actual submission
@@ -180,5 +180,43 @@
   });
 </script>
 
+<!-- NEW: Apps Script Web App submission script -->
+<script>
+  const webForm = document.querySelector('form');
+  webForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const formData = {
+      medication: document.getElementById('medication').value,
+      dose: document.getElementById('dose').value,
+      time: document.getElementById('time').value,
+      startDate: document.getElementById('startDate').value,
+      endDate: document.getElementById('endDate').value,
+      frequency: document.getElementById('frequency').value,
+      email: document.getElementById('email').value,
+      notes: document.getElementById('notes').value
+    };
+
+    try {
+      const response = await fetch("https://script.google.com/macros/s/AKfycbwGiGKk5p4aJqyS6geBXAybN5ChVevJ_AWTx8EZu_4TXLTYh_zu5Vx9vSwyw7I1toOBmw/exec", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData)
+      });
+
+      const result = await response.json();
+
+      if (result.status === "success") {
+        alert("Medication reminders created successfully! Check your email.");
+      } else {
+        alert("Error: " + result.message);
+      }
+    } catch (err) {
+      alert("Error sending data: " + err);
+    }
+  });
+</script>
+
 </body>
 </html>
+
